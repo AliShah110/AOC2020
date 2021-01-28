@@ -52,11 +52,19 @@ public class PuzzleTest {
     }
 
     @Test
-    @DisplayName("CountValidPasswords - DayTwoPartTwo")
-    void numberOfValidPasswordsPartTwo(){
+    @DisplayName("CountValidPasswordsSmallFile - DayTwoPartTwo")
+    void numberOfValidPasswordsSmallFilePartTwo(){
         DayTwoPuzzle puzzle = new DayTwoPuzzle();
         puzzle.setInputData("dayTwoTest.txt");
         assertEquals(1, puzzle.solvePartTwo());
+    }
+
+    @Test
+    @DisplayName("CountValidPasswords - DayTwoPartTwo")
+    void numberOfValidPasswordsPartTwo(){
+        DayTwoPuzzle puzzle = new DayTwoPuzzle();
+        puzzle.setInputData("inputDayTwo");
+        assertEquals(588, puzzle.solvePartTwo());
     }
 
 

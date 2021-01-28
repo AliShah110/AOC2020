@@ -20,18 +20,19 @@ public class DayTwoPuzzle implements AdventOfCodePuzzle {
     }
 
     private int countValidPasswordsPartTwo() {
-        return 1;
-    }
+        int numberOfValidPwd = 0;
 
-    public void setInputData(String fileName) {
-        String url = getClass().getClassLoader().getResource(fileName).getPath();
-        try {
-            inputData = Files.readAllLines(Paths.get(url)).stream()
-                    .map(String::valueOf)
-                    .collect(Collectors.toList());
-        } catch (IOException e) {
-            e.printStackTrace();
+        for(String line : inputData){
+            String[] policyAndPw = line.split(" ");
+            int firstPosition = Integer.valueOf(policyAndPw[0].split("-")[0]);
+            int secondPosition = Integer.valueOf(policyAndPw[0].split("-")[1]);
+            String password = policyAndPw[2];
+            char policyCharacter =  policyAndPw[1].charAt(0);
+            long count = password.chars().filter(ch -> ch == policyCharacter).count();
+            if(password.charAt(firstPosition-1) == policyCharacter ^ password.charAt(secondPosition-1) == policyCharacter)
+                numberOfValidPwd++;
         }
+        return numberOfValidPwd;
     }
 
     private int countValidPasswords() {
@@ -49,5 +50,16 @@ public class DayTwoPuzzle implements AdventOfCodePuzzle {
             }
         }
         return numberOfValidPwd;
+    }
+
+    public void setInputData(String fileName) {
+        String url = getClass().getClassLoader().getResource(fileName).getPath();
+        try {
+            inputData = Files.readAllLines(Paths.get(url)).stream()
+                    .map(String::valueOf)
+                    .collect(Collectors.toList());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
