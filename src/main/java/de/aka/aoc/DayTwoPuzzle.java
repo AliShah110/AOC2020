@@ -16,7 +16,11 @@ public class DayTwoPuzzle implements AdventOfCodePuzzle {
 
     @Override
     public int solvePartTwo() {
-        return 0;
+        return countValidPasswordsPartTwo();
+    }
+
+    private int countValidPasswordsPartTwo() {
+        return 1;
     }
 
     public void setInputData(String fileName) {
