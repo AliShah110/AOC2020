@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class DayOnePuzzle implements AdventOfCodePuzzle {
+public class ReportRepair implements AdventOfCodePuzzle {
 
     private List<Integer> inputNumbers;
 
