@@ -11,7 +11,17 @@ public class PasswordPhilosophy implements AdventOfCodePuzzle {
 
     @Override
     public int solvePartOne() {
-        return countValidPasswords();
+        int numberOfValidPwd = 0;
+
+        for(String line : inputData){
+            String[] policyAndPw = line.split(" ");
+
+            PasswordPolicy policy = new MinMaxPasswordPolicy(policyAndPw[0]);
+            if(policy.checkPassword(policyAndPw[1], policyAndPw[2])){
+                numberOfValidPwd++;
+            }
+        }
+        return numberOfValidPwd;
     }
 
     @Override
@@ -25,7 +35,7 @@ public class PasswordPhilosophy implements AdventOfCodePuzzle {
         for(String line : inputData){
             String[] policyAndPw = line.split(" ");
 
-            ExclusivOrPasswordPolicy policy = new ExclusivOrPasswordPolicy(policyAndPw[0]);
+            PasswordPolicy policy = new ExclusivOrPasswordPolicy(policyAndPw[0]);
 
             if(policy.checkPassword(policyAndPw[1], policyAndPw[2])){
                 numberOfValidPwd++;
@@ -40,7 +50,7 @@ public class PasswordPhilosophy implements AdventOfCodePuzzle {
         for(String line : inputData){
             String[] policyAndPw = line.split(" ");
 
-            MinMaxPasswordPolicy policy = new MinMaxPasswordPolicy(policyAndPw[0]);
+            PasswordPolicy policy = new MinMaxPasswordPolicy(policyAndPw[0]);
             if(policy.checkPassword(policyAndPw[1], policyAndPw[2])){
                 numberOfValidPwd++;
             }

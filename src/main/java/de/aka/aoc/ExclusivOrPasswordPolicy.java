@@ -1,6 +1,6 @@
 package de.aka.aoc;
 
-public class ExclusivOrPasswordPolicy {
+public class ExclusivOrPasswordPolicy implements PasswordPolicy {
 
     private final String policyString;
 
@@ -9,6 +9,7 @@ public class ExclusivOrPasswordPolicy {
     }
 
 
+    @Override
     public boolean checkPassword(String policyCharacter, String password) {
         char charToBeChecked =  policyCharacter.charAt(0);
         if(password.charAt(firstPosition()) == charToBeChecked ^ password.charAt(secondPosition()) == charToBeChecked)

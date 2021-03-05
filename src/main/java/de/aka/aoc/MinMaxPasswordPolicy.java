@@ -1,6 +1,6 @@
 package de.aka.aoc;
 
-public class MinMaxPasswordPolicy {
+public class MinMaxPasswordPolicy implements PasswordPolicy{
 
     private final String policyString;
 
