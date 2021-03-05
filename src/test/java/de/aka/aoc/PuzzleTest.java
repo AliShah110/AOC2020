@@ -57,5 +57,21 @@ public class PuzzleTest {
         assertEquals(588, puzzle.solvePartTwo());
     }
 
+    @Test
+    @DisplayName("TobogganTrajectoryTestFile - DayThreePartOne")
+    void numberOfTrees(){
+        DataProvider dataProvider = new FileBasedDataProviderImpl("dayThreeTest.txt");
+        TobogganTrajectory tobogganTrajectory = new TobogganTrajectory(dataProvider);
+        assertEquals(7, tobogganTrajectory.solvePartOne());
+    }
+
+    @Test
+    @DisplayName("Toboggan Trajectory - DayThreePartOne")
+    void numberOfTreesPartOne(){
+        DataProvider dataProvider = new FileBasedDataProviderImpl("inputDayThree.txt");
+        TobogganTrajectory tobogganTrajectory = new TobogganTrajectory(dataProvider);
+        assertEquals(211, tobogganTrajectory.solvePartOne());
+    }
+
 
 }
