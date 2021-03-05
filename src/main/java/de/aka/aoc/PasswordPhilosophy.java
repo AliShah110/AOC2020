@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class DayTwoPuzzle implements AdventOfCodePuzzle {
+public class PasswordPhilosophy implements AdventOfCodePuzzle {
     private List<String> inputData;
 
     @Override
@@ -24,13 +24,12 @@ public class DayTwoPuzzle implements AdventOfCodePuzzle {
 
         for(String line : inputData){
             String[] policyAndPw = line.split(" ");
-            int firstPosition = Integer.valueOf(policyAndPw[0].split("-")[0]);
-            int secondPosition = Integer.valueOf(policyAndPw[0].split("-")[1]);
-            String password = policyAndPw[2];
-            char policyCharacter =  policyAndPw[1].charAt(0);
-            long count = password.chars().filter(ch -> ch == policyCharacter).count();
-            if(password.charAt(firstPosition-1) == policyCharacter ^ password.charAt(secondPosition-1) == policyCharacter)
+
+            ExclusivOrPasswordPolicy policy = new ExclusivOrPasswordPolicy(policyAndPw[0]);
+
+            if(policy.checkPassword(policyAndPw[1], policyAndPw[2])){
                 numberOfValidPwd++;
+            }
         }
         return numberOfValidPwd;
     }
@@ -40,12 +39,9 @@ public class DayTwoPuzzle implements AdventOfCodePuzzle {
 
         for(String line : inputData){
             String[] policyAndPw = line.split(" ");
-            int letterAppearanceMin = Integer.valueOf(policyAndPw[0].split("-")[0]);
-            int letterAppearanceMax = Integer.valueOf(policyAndPw[0].split("-")[1]);
-            String password = policyAndPw[2];
-            char policyCharacter =  policyAndPw[1].charAt(0);
-            long count = password.chars().filter(ch -> ch == policyCharacter).count();
-            if(letterAppearanceMin <= count && count <= letterAppearanceMax){
+
+            MinMaxPasswordPolicy policy = new MinMaxPasswordPolicy(policyAndPw[0]);
+            if(policy.checkPassword(policyAndPw[1], policyAndPw[2])){
                 numberOfValidPwd++;
             }
         }

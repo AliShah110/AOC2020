@@ -3,16 +3,6 @@ package de.aka.aoc;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
-import java.util.Arrays;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PuzzleTest {
@@ -36,9 +26,9 @@ public class PuzzleTest {
     }
 
     @Test
-    @DisplayName("CountValidPasswordsSmallFile")
+    @DisplayName("CountValidPasswordsSmallFile - DayTwoPartOne")
     void numberOfValidPasswordsSmallFile(){
-        DayTwoPuzzle puzzle = new DayTwoPuzzle();
+        PasswordPhilosophy puzzle = new PasswordPhilosophy();
         puzzle.setInputData("dayTwoTest.txt");
         assertEquals(2, puzzle.solvePartOne());
     }
@@ -46,7 +36,7 @@ public class PuzzleTest {
     @Test
     @DisplayName("CountValidPasswords - DayTwoPartOne")
     void numberOfValidPasswordsPartOne(){
-        DayTwoPuzzle puzzle = new DayTwoPuzzle();
+        PasswordPhilosophy puzzle = new PasswordPhilosophy();
         puzzle.setInputData("inputDayTwo");
         assertEquals(636, puzzle.solvePartOne());
     }
@@ -54,7 +44,7 @@ public class PuzzleTest {
     @Test
     @DisplayName("CountValidPasswordsSmallFile - DayTwoPartTwo")
     void numberOfValidPasswordsSmallFilePartTwo(){
-        DayTwoPuzzle puzzle = new DayTwoPuzzle();
+        PasswordPhilosophy puzzle = new PasswordPhilosophy();
         puzzle.setInputData("dayTwoTest.txt");
         assertEquals(1, puzzle.solvePartTwo());
     }
@@ -62,7 +52,7 @@ public class PuzzleTest {
     @Test
     @DisplayName("CountValidPasswords - DayTwoPartTwo")
     void numberOfValidPasswordsPartTwo(){
-        DayTwoPuzzle puzzle = new DayTwoPuzzle();
+        PasswordPhilosophy puzzle = new PasswordPhilosophy();
         puzzle.setInputData("inputDayTwo");
         assertEquals(588, puzzle.solvePartTwo());
     }
