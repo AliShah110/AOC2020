@@ -1,17 +1,19 @@
 package de.aka.aoc;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ReportRepair implements AdventOfCodePuzzle {
 
-    private List<Integer> inputNumbers;
+    private final DataProvider dataProvider;
+
+    public ReportRepair(DataProvider dataProvider) {
+
+        this.dataProvider = dataProvider;
+    }
 
     @Override
     public int solvePartTwo() {
+        List<Integer> inputNumbers = dataProvider.inputDataAsIntegerList();
         int result = 0;
         for(int firstNumber : inputNumbers){
             for(int secondNumber : inputNumbers){
@@ -29,6 +31,7 @@ public class ReportRepair implements AdventOfCodePuzzle {
 
     @Override
     public int solvePartOne() {
+        List<Integer> inputNumbers = dataProvider.inputDataAsIntegerList();
         int result = 0;
         for(int firstNumber : inputNumbers){
             for(int secondNumber : inputNumbers){
@@ -39,17 +42,4 @@ public class ReportRepair implements AdventOfCodePuzzle {
         }
         return result;
     }
-
-    public void setInputNumbers(String fileName) {
-        String url = getClass().getClassLoader().getResource(fileName).getPath();
-        try {
-            inputNumbers = Files.readAllLines(Paths.get(url)).stream()
-                    .map(Integer::valueOf)
-                    .collect(Collectors.toList());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
 }

@@ -10,8 +10,8 @@ public class PuzzleTest {
     @Test
     @DisplayName("ReportRepair - DayOnePartOne")
     void productOfTwoNumbersSumsTo2020(){
-        ReportRepair puzzle = new ReportRepair();
-        puzzle.setInputNumbers("inputDayOne.txt");
+        DataProvider dataProvider = new FileBasedDataProviderImpl("inputDayOne.txt");
+        ReportRepair puzzle = new ReportRepair(dataProvider);
         int result = puzzle.solvePartOne();
         assertEquals(290784,result);
     }
@@ -19,8 +19,8 @@ public class PuzzleTest {
     @Test
     @DisplayName("Report Repair - DayOnePartTwo")
     void productOfThreeNumbersSumsTo2020(){
-        ReportRepair puzzle = new ReportRepair();
-        puzzle.setInputNumbers("inputDayOne.txt");
+        DataProvider dataProvider = new FileBasedDataProviderImpl("inputDayOne.txt");
+        ReportRepair puzzle = new ReportRepair(dataProvider);
         int result = puzzle.solvePartTwo();
         assertEquals(177337980,result);
     }
@@ -28,32 +28,32 @@ public class PuzzleTest {
     @Test
     @DisplayName("CountValidPasswordsSmallFile - DayTwoPartOne")
     void numberOfValidPasswordsSmallFile(){
-        PasswordPhilosophy puzzle = new PasswordPhilosophy();
-        puzzle.setInputData("dayTwoTest.txt");
+        DataProvider dataProvider = new FileBasedDataProviderImpl("dayTwoTest.txt");
+        PasswordPhilosophy puzzle = new PasswordPhilosophy(dataProvider);
         assertEquals(2, puzzle.solvePartOne());
     }
 
     @Test
     @DisplayName("CountValidPasswords - DayTwoPartOne")
     void numberOfValidPasswordsPartOne(){
-        PasswordPhilosophy puzzle = new PasswordPhilosophy();
-        puzzle.setInputData("inputDayTwo");
+        DataProvider dataProvider = new FileBasedDataProviderImpl("inputDayTwo");
+        PasswordPhilosophy puzzle = new PasswordPhilosophy(dataProvider);
         assertEquals(636, puzzle.solvePartOne());
     }
 
     @Test
     @DisplayName("CountValidPasswordsSmallFile - DayTwoPartTwo")
     void numberOfValidPasswordsSmallFilePartTwo(){
-        PasswordPhilosophy puzzle = new PasswordPhilosophy();
-        puzzle.setInputData("dayTwoTest.txt");
+        DataProvider dataProvider = new FileBasedDataProviderImpl("dayTwoTest.txt");
+        PasswordPhilosophy puzzle = new PasswordPhilosophy(dataProvider);
         assertEquals(1, puzzle.solvePartTwo());
     }
 
     @Test
     @DisplayName("CountValidPasswords - DayTwoPartTwo")
     void numberOfValidPasswordsPartTwo(){
-        PasswordPhilosophy puzzle = new PasswordPhilosophy();
-        puzzle.setInputData("inputDayTwo");
+        DataProvider dataProvider = new FileBasedDataProviderImpl("inputDayTwo");
+        PasswordPhilosophy puzzle = new PasswordPhilosophy(dataProvider);
         assertEquals(588, puzzle.solvePartTwo());
     }
 
