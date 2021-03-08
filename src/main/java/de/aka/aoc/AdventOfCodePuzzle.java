@@ -2,6 +2,6 @@ package de.aka.aoc;
 
 public interface AdventOfCodePuzzle {
 
-    int solvePartOne();
-    int solvePartTwo();
+    long solvePartOne();
+    long solvePartTwo();
 }

@@ -14,8 +14,7 @@ public class PuzzleTest {
     void productOfTwoNumbersSumsTo2020(){
         DataProvider dataProvider = new FileBasedDataProviderImpl("inputDayOne.txt");
         ReportRepair puzzle = new ReportRepair(dataProvider);
-        int result = puzzle.solvePartOne();
-        assertEquals(290784,result);
+        assertEquals(290784,puzzle.solvePartOne());
     }
 
     @Test
@@ -23,8 +22,7 @@ public class PuzzleTest {
     void productOfThreeNumbersSumsTo2020(){
         DataProvider dataProvider = new FileBasedDataProviderImpl("inputDayOne.txt");
         ReportRepair puzzle = new ReportRepair(dataProvider);
-        int result = puzzle.solvePartTwo();
-        assertEquals(177337980,result);
+        assertEquals(177337980,puzzle.solvePartTwo());
     }
 
     @Test
@@ -88,9 +86,18 @@ public class PuzzleTest {
     @DisplayName("TobogganTrajectoryTestFile - DayThreePartTwo")
     void multiplyNumberOfTreesForAllSlopes(){
         DataProvider dataProvider = new FileBasedDataProviderImpl("dayThreeTest.txt");
-        List<Slope> slopes = List.of(new Slope(1,3), new Slope(1,1));
-        TobogganTrajectory tobogganTrajectory = new TobogganTrajectory(dataProvider);
+        List<Slope> slopes = List.of(new Slope(1,3), new Slope(1,1), new Slope(1, 5), new Slope(1,7), new Slope(2,1));
+        TobogganTrajectory tobogganTrajectory = new TobogganTrajectory(dataProvider, slopes);
         assertEquals(336, tobogganTrajectory.solvePartTwo());
+    }
+
+    @Test
+    @DisplayName("TobogganTrajectory - DayThreePartTwo")
+    void multiplyNumberOfTreesForAllSlopesInputFile(){
+        DataProvider dataProvider = new FileBasedDataProviderImpl("inputDayThree.txt");
+        List<Slope> slopes = List.of(new Slope(1,3), new Slope(1,1), new Slope(1, 5), new Slope(1,7), new Slope(2,1));
+        TobogganTrajectory tobogganTrajectory = new TobogganTrajectory(dataProvider, slopes);
+        assertEquals(3584591857L, tobogganTrajectory.solvePartTwo());
     }
 
 

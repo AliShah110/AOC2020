@@ -13,7 +13,7 @@ public class PasswordPhilosophy implements AdventOfCodePuzzle {
 
 
     @Override
-    public int solvePartOne() {
+    public long solvePartOne() {
         List<String> inputData = dataProvider.inputDataAsStringList();
 
         int numberOfValidPwd = 0;
@@ -29,7 +29,7 @@ public class PasswordPhilosophy implements AdventOfCodePuzzle {
     }
 
     @Override
-    public int solvePartTwo() {
+    public long solvePartTwo() {
         List<String> inputData = dataProvider.inputDataAsStringList();
 
         int numberOfValidPwd = 0;

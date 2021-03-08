@@ -12,7 +12,7 @@ public class ReportRepair implements AdventOfCodePuzzle {
     }
 
     @Override
-    public int solvePartTwo() {
+    public long solvePartTwo() {
         List<Integer> inputNumbers = dataProvider.inputDataAsIntegerList();
         int result = 0;
         for(int firstNumber : inputNumbers){
@@ -30,7 +30,7 @@ public class ReportRepair implements AdventOfCodePuzzle {
     }
 
     @Override
-    public int solvePartOne() {
+    public long solvePartOne() {
         List<Integer> inputNumbers = dataProvider.inputDataAsIntegerList();
         int result = 0;
         for(int firstNumber : inputNumbers){

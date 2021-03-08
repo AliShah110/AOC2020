@@ -17,4 +17,12 @@ public class Slope {
     public int getRight() {
         return right;
     }
+
+    @Override
+    public String toString() {
+        return "Slope{" +
+                "down=" + down +
+                ", right=" + right +
+                '}';
+    }
 }

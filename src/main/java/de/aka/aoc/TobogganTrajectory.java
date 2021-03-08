@@ -18,7 +18,7 @@ public class TobogganTrajectory implements AdventOfCodePuzzle{
     }
 
     @Override
-    public int solvePartOne() {
+    public long solvePartOne() {
         int slopeDown = slopes.get(0).getDown();
         int slopeRight = slopes.get(0).getRight();
         int slopeRightCounter = slopeRight;
@@ -38,15 +38,14 @@ public class TobogganTrajectory implements AdventOfCodePuzzle{
     }
 
     @Override
-    public int solvePartTwo() {
-        int result = 1;
-        if(slopes != null && slopes.size() == 2){
-            for(Slope slope:slopes) {
-                result *= calculateNumberOfTreesForSlope(slope);
-            }
-            return result;
+    public long solvePartTwo() {
+        long result = 1;
+
+        for(Slope slope:slopes) {
+            result *= calculateNumberOfTreesForSlope(slope);
         }
-        return 336;
+        return result;
+
     }
 
     private int calculateNumberOfTreesForSlope(Slope slope) {
@@ -57,14 +56,14 @@ public class TobogganTrajectory implements AdventOfCodePuzzle{
 
         List<String> inputData = dataProvider.inputDataAsStringList();
         int numberOfColumns = inputData.get(0).length();
-        for(int line=slopeDown; line<inputData.size(); line++){
+        for(int line=slopeDown; line<inputData.size(); line = line+slopeDown){
             char[] row = inputData.get(line).toCharArray();
             if(row[slopeRightCounter%numberOfColumns] == '#'){
                 result++;
             }
             slopeRightCounter += slopeRight;
         }
-
+        System.out.println(slope.toString()+": Trees-->"+result);
         return result;
     }
 }
