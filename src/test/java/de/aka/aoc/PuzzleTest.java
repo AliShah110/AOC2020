@@ -3,6 +3,8 @@ package de.aka.aoc;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PuzzleTest {
@@ -61,7 +63,7 @@ public class PuzzleTest {
     @DisplayName("TobogganTrajectoryTestFile - DayThreePartOne")
     void numberOfTrees(){
         DataProvider dataProvider = new FileBasedDataProviderImpl("dayThreeTest.txt");
-        TobogganTrajectory tobogganTrajectory = new TobogganTrajectory(dataProvider);
+        TobogganTrajectory tobogganTrajectory = new TobogganTrajectory(dataProvider, List.of(new Slope(1,3)));
         assertEquals(7, tobogganTrajectory.solvePartOne());
     }
 
@@ -69,14 +71,24 @@ public class PuzzleTest {
     @DisplayName("Toboggan Trajectory - DayThreePartOne")
     void numberOfTreesPartOne(){
         DataProvider dataProvider = new FileBasedDataProviderImpl("inputDayThree.txt");
-        TobogganTrajectory tobogganTrajectory = new TobogganTrajectory(dataProvider);
+        TobogganTrajectory tobogganTrajectory = new TobogganTrajectory(dataProvider, List.of(new Slope(1,3)));
         assertEquals(211, tobogganTrajectory.solvePartOne());
+    }
+
+    @Test
+    @DisplayName("TobogganTrajectoryTwoSlopes - DayThreePartTwo")
+    void multiplyNumberOfTreesForTwoSlopes(){
+        DataProvider dataProvider = new FileBasedDataProviderImpl("dayThreeTest.txt");
+        List<Slope> slopes = List.of(new Slope(1,3), new Slope(1,1));
+        TobogganTrajectory tobogganTrajectory = new TobogganTrajectory(dataProvider, slopes);
+        assertEquals(14, tobogganTrajectory.solvePartTwo());
     }
 
     @Test
     @DisplayName("TobogganTrajectoryTestFile - DayThreePartTwo")
     void multiplyNumberOfTreesForAllSlopes(){
         DataProvider dataProvider = new FileBasedDataProviderImpl("dayThreeTest.txt");
+        List<Slope> slopes = List.of(new Slope(1,3), new Slope(1,1));
         TobogganTrajectory tobogganTrajectory = new TobogganTrajectory(dataProvider);
         assertEquals(336, tobogganTrajectory.solvePartTwo());
     }
