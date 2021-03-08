@@ -6,11 +6,10 @@ public class TobogganTrajectory implements AdventOfCodePuzzle{
 
     private final DataProvider dataProvider;
 
-    private final List<Slope> slopes;
+    private List<Slope> slopes;
 
-    public TobogganTrajectory(DataProvider dataProvider, List<Slope> slopes) {
+    public TobogganTrajectory(DataProvider dataProvider) {
         this.dataProvider = dataProvider;
-        this.slopes = slopes;
     }
 
     @Override
@@ -45,5 +44,9 @@ public class TobogganTrajectory implements AdventOfCodePuzzle{
             slopeRightCounter += slopeRight;
         }
         return result;
+    }
+
+    public void setSlopes(List<Slope> slopes) {
+        this.slopes = slopes;
     }
 }
