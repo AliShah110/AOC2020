@@ -73,5 +73,13 @@ public class PuzzleTest {
         assertEquals(211, tobogganTrajectory.solvePartOne());
     }
 
+    @Test
+    @DisplayName("TobogganTrajectoryTestFile - DayThreePartTwo")
+    void multiplyNumberOfTreesForAllSlopes(){
+        DataProvider dataProvider = new FileBasedDataProviderImpl("dayThreeTest.txt");
+        TobogganTrajectory tobogganTrajectory = new TobogganTrajectory(dataProvider);
+        assertEquals(336, tobogganTrajectory.solvePartTwo());
+    }
+
 
 }

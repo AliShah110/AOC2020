@@ -18,7 +18,7 @@ public class TobogganTrajectory implements AdventOfCodePuzzle{
         int result = 0;
 
         List<String> inputData = dataProvider.inputDataAsStringList();
-        int numberOfColumns = inputData.get(0).split("").length;
+        int numberOfColumns = inputData.get(0).length();
         for(int line=slopeDown; line<inputData.size(); line++){
             char[] row = inputData.get(line).toCharArray();
             if(row[slopeRightCounter%numberOfColumns] == '#'){
