@@ -2,22 +2,21 @@ package de.aka.aoc;
 
 import java.util.List;
 
-public class TobogganTrajectory implements AdventOfCodePuzzle{
+public class TobogganTrajectory{
 
     private final DataProvider dataProvider;
 
-    private List<Slope> slopes;
+    private final List<Slope> slopes;
 
-    public TobogganTrajectory(DataProvider dataProvider) {
+    public TobogganTrajectory(DataProvider dataProvider, List<Slope> slopes) {
         this.dataProvider = dataProvider;
+        this.slopes = slopes;
     }
 
-    @Override
     public long solvePartOne() {
-        return solvePartTwo();
+        return calculateNumberOfTreesForSlope(slopes.get(0));
     }
 
-    @Override
     public long solvePartTwo() {
         long result = 1;
 
@@ -46,7 +45,4 @@ public class TobogganTrajectory implements AdventOfCodePuzzle{
         return result;
     }
 
-    public void setSlopes(List<Slope> slopes) {
-        this.slopes = slopes;
-    }
 }

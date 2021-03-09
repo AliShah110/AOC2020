@@ -2,7 +2,7 @@ package de.aka.aoc;
 
 import java.util.List;
 
-public class ReportRepair implements AdventOfCodePuzzle {
+public class ReportRepair{
 
     private final DataProvider dataProvider;
 
@@ -11,7 +11,6 @@ public class ReportRepair implements AdventOfCodePuzzle {
         this.dataProvider = dataProvider;
     }
 
-    @Override
     public long solvePartTwo() {
         List<Integer> inputNumbers = dataProvider.inputDataAsIntegerList();
         int result = 0;
@@ -29,7 +28,6 @@ public class ReportRepair implements AdventOfCodePuzzle {
         return result;
     }
 
-    @Override
     public long solvePartOne() {
         List<Integer> inputNumbers = dataProvider.inputDataAsIntegerList();
         int result = 0;

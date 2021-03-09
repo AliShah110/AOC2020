@@ -2,7 +2,7 @@ package de.aka.aoc;
 
 import java.util.List;
 
-public class PasswordPhilosophy implements AdventOfCodePuzzle {
+public class PasswordPhilosophy{
 
 
     private final DataProvider dataProvider;
@@ -11,8 +11,6 @@ public class PasswordPhilosophy implements AdventOfCodePuzzle {
         this.dataProvider = dataProvider;
     }
 
-
-    @Override
     public long solvePartOne() {
         List<String> inputData = dataProvider.inputDataAsStringList();
 
@@ -28,7 +26,6 @@ public class PasswordPhilosophy implements AdventOfCodePuzzle {
         return numberOfValidPwd;
     }
 
-    @Override
     public long solvePartTwo() {
         List<String> inputData = dataProvider.inputDataAsStringList();
 
