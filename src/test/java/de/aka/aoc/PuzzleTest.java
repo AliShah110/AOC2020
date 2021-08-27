@@ -114,5 +114,18 @@ public class PuzzleTest {
         }
     }
 
+    @Nested
+    @DisplayName("Day Four")
+    class PassportValidationTest{
+        @Test
+        @DisplayName("TestFile - DayFourPartOne")
+        void twoValidPassports(){
+            DataProvider dataProvider = new FileBasedDataProviderImpl("dayFourTest.txt");
+            PassportValidator passportValidator = new PassportValidator(dataProvider);
+            assertEquals(2, passportValidator.solvePartOne());
+        }
+
+    }
+
 
 }
