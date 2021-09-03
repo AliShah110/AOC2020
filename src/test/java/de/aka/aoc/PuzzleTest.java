@@ -138,7 +138,7 @@ public class PuzzleTest {
         void x(){
             DataProvider dataProvider = new FileBasedDataProviderImpl("dayFourTestInvalid.txt");
             PassportValidator passportValidator = new PassportValidator(dataProvider);
-            assertEquals(0, passportValidator.solvePartOne());
+            assertEquals(0, passportValidator.solvePartTwo());
         }
     }
 
