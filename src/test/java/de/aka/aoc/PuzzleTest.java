@@ -130,9 +130,16 @@ public class PuzzleTest {
         void numberOfValidPassports(){
             DataProvider dataProvider = new FileBasedDataProviderImpl("inputDayFour.txt");
             PassportValidator passportValidator = new PassportValidator(dataProvider);
-            assertEquals(2, passportValidator.solvePartOne());
+            assertEquals(264, passportValidator.solvePartOne());
         }
 
+        @Test
+        @DisplayName("TestFile - DayFourPartTwo - Invalid Passports")
+        void x(){
+            DataProvider dataProvider = new FileBasedDataProviderImpl("dayFourTestInvalid.txt");
+            PassportValidator passportValidator = new PassportValidator(dataProvider);
+            assertEquals(0, passportValidator.solvePartOne());
+        }
     }
 
 
