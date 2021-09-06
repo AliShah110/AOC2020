@@ -147,7 +147,13 @@ public class PuzzleTest {
         void invalidPassportEYR(){
             Passport passport = new Passport("eyr:1972 cid:100 hcl:#18171d ecl:amb hgt:170 pid:186cm iyr:2018 byr:1926");
             assertFalse(passport.isValid());
+        }
 
+        @Test
+        @DisplayName("Invalid Height")
+        void invalidPassportHGT(){
+            Passport passport = new Passport("eyr:2021 cid:100 hcl:#18171d ecl:amb hgt:170 pid:186cm iyr:2018 byr:1926");
+            assertFalse(passport.isValid());
         }
     }
 

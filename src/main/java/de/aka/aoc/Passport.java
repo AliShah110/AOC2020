@@ -7,20 +7,20 @@ public class Passport {
     }
 
     public boolean isValid() {
-        if(invalidExpirationYear()){
-            return false;
-        }
-        return true;
+        return validExpirationYear();
     }
 
-    private boolean invalidExpirationYear() {
+    private boolean validExpirationYear() {
         int expirationYear = getExpirationYear();
-        if(expirationYear < 2020 && expirationYear > 2030)
-            return false;
-        return true;
+        if(expirationYear > 2020 && expirationYear < 2030)
+            return true;
+        return false;
     }
 
     private int getExpirationYear() {
-        return 1972;
+        int indexEyr = passportData.indexOf("eyr:");
+        if(indexEyr != -1)
+            return Integer.parseInt(passportData.substring(indexEyr+4, indexEyr+8));
+        return 1900;
     }
 }
