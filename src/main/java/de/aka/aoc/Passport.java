@@ -9,7 +9,15 @@ public class Passport {
     }
 
     public boolean isValid() {
-        return validExpirationYear() && validHeight();
+        return validExpirationYear() && validHeight() && validPassportId();
+    }
+
+    private boolean validPassportId() {
+        int indexId = passportData.indexOf("pid:");
+        if(indexId != -1){
+            return passportData.substring(indexId+4, indexId+13).matches("\\d{9}");
+        }
+        return false;
     }
 
     private boolean validHeight() {
