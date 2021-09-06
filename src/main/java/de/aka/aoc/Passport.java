@@ -7,7 +7,11 @@ public class Passport {
     }
 
     public boolean isValid() {
-        return validExpirationYear();
+        return validExpirationYear() && validHeight();
+    }
+
+    private boolean validHeight() {
+        return false;
     }
 
     private boolean validExpirationYear() {
