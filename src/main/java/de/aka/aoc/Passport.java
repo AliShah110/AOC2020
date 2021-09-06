@@ -1,5 +1,7 @@
 package de.aka.aoc;
 
+import java.util.Optional;
+
 public class Passport {
     private final String passportData;
     public Passport(String passportData) {
@@ -11,7 +13,17 @@ public class Passport {
     }
 
     private boolean validHeight() {
+        String height = getHeightValue();
+        if(height.matches("1[5-8][0-9]cm|19[0-3]cm|59in|6[0-9]in|7[0-6]in"))
+            return true;
         return false;
+    }
+
+    private String getHeightValue() {
+        int indexHGT = passportData.indexOf("hgt:");
+        if(indexHGT != -1)
+            return passportData.substring(indexHGT+4, indexHGT+9);
+        return null;
     }
 
     private boolean validExpirationYear() {
@@ -21,6 +33,7 @@ public class Passport {
         return false;
     }
 
+    //What if not four digits? Exception Handling is missing?
     private int getExpirationYear() {
         int indexEyr = passportData.indexOf("eyr:");
         if(indexEyr != -1)
