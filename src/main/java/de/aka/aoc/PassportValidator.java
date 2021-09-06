@@ -23,7 +23,12 @@ public class PassportValidator {
     }
 
     public int solvePartTwo() {
+        List<Passport> passports = getPassportList();
         return 0;
+    }
+
+    private List<Passport> getPassportList() {
+        return new ArrayList<Passport>();
     }
 
     public List<String> formatPassportData() {

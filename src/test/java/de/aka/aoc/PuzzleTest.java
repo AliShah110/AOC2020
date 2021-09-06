@@ -135,7 +135,7 @@ public class PuzzleTest {
 
         @Test
         @DisplayName("TestFile - DayFourPartTwo - Invalid Passports")
-        void x(){
+        void testFileContainingOnlyInvalidPassports(){
             DataProvider dataProvider = new FileBasedDataProviderImpl("dayFourTestInvalid.txt");
             PassportValidator passportValidator = new PassportValidator(dataProvider);
             assertEquals(0, passportValidator.solvePartTwo());
