@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class PuzzleTest {
 
@@ -139,6 +140,14 @@ public class PuzzleTest {
             DataProvider dataProvider = new FileBasedDataProviderImpl("dayFourTestInvalid.txt");
             PassportValidator passportValidator = new PassportValidator(dataProvider);
             assertEquals(0, passportValidator.solvePartTwo());
+        }
+
+        @Test
+        @DisplayName("Invalid Passport Expiry Date")
+        void x(){
+            Passport passport = new Passport("eyr:1972 cid:100 hcl:#18171d ecl:amb hgt:170 pid:186cm iyr:2018 byr:1926");
+            assertFalse(passport.isValid());
+
         }
     }
 

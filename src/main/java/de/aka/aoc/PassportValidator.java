@@ -24,14 +24,20 @@ public class PassportValidator {
 
     public int solvePartTwo() {
         List<Passport> passports = getPassportList();
+
         return 0;
     }
 
     private List<Passport> getPassportList() {
-        return new ArrayList<Passport>();
+        List<String> passportLines = formatPassportData();
+
+        List<Passport> result = new ArrayList<Passport>();
+        for(String passportData:passportLines)
+            result.add(new Passport(passportData));
+        return result;
     }
 
-    public List<String> formatPassportData() {
+    private List<String> formatPassportData() {
         List<String> inputLines = dataProvider.inputDataAsStringList();
         List<String> passports = new ArrayList<String>();
         for (int index = 0; index < inputLines.size(); index++) {
